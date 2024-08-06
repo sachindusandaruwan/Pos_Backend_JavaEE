@@ -14,4 +14,9 @@ public class ItemBoImpl implements ItemBo {
 
         return itemDao.saveItem(itemDto,connection);
     }
+
+    @Override
+    public ItemDto getItem(String itemCode, Connection connection) {
+        return itemDao.getItem(itemCode,connection);
+    }
 }

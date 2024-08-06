@@ -6,4 +6,6 @@ import java.sql.Connection;
 
 public interface ItemDao {
     String saveItem(ItemDto itemDto, Connection connection);
+
+    ItemDto getItem(String itemCode, Connection connection);
 }
