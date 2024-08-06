@@ -9,7 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="41ba3d60-feec-48a2-946a-4717250ecc68" name="Changes" comment="get Customer done">
+    <list default="true" id="41ba3d60-feec-48a2-946a-4717250ecc68" name="Changes" comment="update Customer done">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/bo/CustomerBo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/bo/CustomerBo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/bo/CustomerBoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/bo/CustomerBoImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/controller/CustomerController.java" afterDir="false" />
@@ -193,7 +194,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1722921481658</updated>
-      <workItem from="1722921482809" duration="5971000" />
+      <workItem from="1722921482809" duration="7263000" />
     </task>
     <task id="LOCAL-00001" summary="version 01">
       <option name="closed" value="true" />
@@ -211,7 +212,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722926128681</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="update Customer done">
+      <option name="closed" value="true" />
+      <created>1722927682687</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1722927682687</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,6 +229,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="version 01" />
     <MESSAGE value="get Customer done" />
-    <option name="LAST_COMMIT_MESSAGE" value="get Customer done" />
+    <MESSAGE value="update Customer done" />
+    <option name="LAST_COMMIT_MESSAGE" value="update Customer done" />
   </component>
 </project>
