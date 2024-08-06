@@ -84,6 +84,7 @@ public class CustomerController extends HttpServlet {
             Jsonb jsonb = JsonbBuilder.create();
             CustomerDto customerDto= jsonb.fromJson(req.getReader(), CustomerDto.class);
             if (customerBo.updateCustomer(customerId,customerDto,connection)){
+                System.out.println("customer updated");
                 writer.write("customer updated successfully");
             }
             else {

@@ -16,7 +16,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
     @Override
     public String saveCustomer(CustomerDto customerDto, Connection connection) {
-        PreparedStatement preparedStatement = null;
+        PreparedStatement preparedStatement =null;
         try {
             preparedStatement = connection.prepareStatement(SAVE_CUSTOMER);
             preparedStatement.setString(1, customerDto.getId());
