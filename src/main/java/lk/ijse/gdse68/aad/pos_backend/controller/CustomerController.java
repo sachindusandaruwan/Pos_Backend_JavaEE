@@ -59,4 +59,21 @@ public class CustomerController extends HttpServlet {
             }
         }
     }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("doget method Invoked");
+
+        try(var writer = resp.getWriter()) {
+            Jsonb jsonb = JsonbBuilder.create();
+           var customerId = req.getParameter("id");
+           resp.setContentType("application/json");
+           jsonb.toJson(customerBo.getCustomer(customerId,connection),writer);
+
+
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

@@ -13,4 +13,9 @@ public class CustomerBoImpl implements CustomerBo{
     public String saveCustomer(CustomerDto customerDto, Connection connection) {
         return customerDao.saveCustomer(customerDto, connection);
     }
+
+    @Override
+    public CustomerDto getCustomer(String customerId, Connection connection) {
+        return customerDao.getCustomer(customerId,connection);
+    }
 }

@@ -6,4 +6,6 @@ import java.sql.Connection;
 
 public interface CustomerBo {
     String saveCustomer(CustomerDto customerDto, Connection connection);
+
+    CustomerDto getCustomer(String customerId, Connection connection);
 }

@@ -4,11 +4,13 @@ import lk.ijse.gdse68.aad.pos_backend.dto.CustomerDto;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class CustomerDaoImpl implements CustomerDao {
 
     public static String SAVE_CUSTOMER = "Insert into customer values (?,?,?,?)";
+    public static String GET_CUSTOMER_BY_ID = "select * from customer where id=?";
 
     @Override
     public String saveCustomer(CustomerDto customerDto, Connection connection) {
@@ -30,6 +32,27 @@ public class CustomerDaoImpl implements CustomerDao {
 
         }
 
+    }
+
+    @Override
+    public CustomerDto getCustomer(String customerId, Connection connection) {
+        var customerDto = new CustomerDto();
+        try {
+            var preparedStatement = connection.prepareStatement(GET_CUSTOMER_BY_ID);
+            preparedStatement.setString(1, customerId);
+
+            var resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                customerDto.setId(resultSet.getString("id"));
+                customerDto.setName(resultSet.getString("name"));
+                customerDto.setAddress(resultSet.getString("address"));
+                customerDto.setSalary(resultSet.getDouble("salary"));
+            }
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return customerDto;
     }
 }
 
