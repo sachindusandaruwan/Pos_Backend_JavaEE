@@ -49,8 +49,10 @@ public class CustomerController extends HttpServlet {
 
         if (req.getContentType() == null || !req.getContentType().toLowerCase().startsWith("application/json")){
             resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
+            System.out.println("enawada");
         }else {
             try(var writer = resp.getWriter()){
+                System.out.println("enawada11");
                 Jsonb jsonb = JsonbBuilder.create();
                 CustomerDto customerDto = jsonb.fromJson(req.getReader(), CustomerDto.class);
                 writer.write(customerBo.saveCustomer(customerDto, connection));
