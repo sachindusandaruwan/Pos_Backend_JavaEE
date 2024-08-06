@@ -11,6 +11,7 @@ public class CustomerDaoImpl implements CustomerDao {
 
     public static String SAVE_CUSTOMER = "Insert into customer values (?,?,?,?)";
     public static String GET_CUSTOMER_BY_ID = "select * from customer where id=?";
+    public static String UPDATE_CUSTOMER = "UPDATE customer SET name=?, address=?, salary=? WHERE id=?";
 
     @Override
     public String saveCustomer(CustomerDto customerDto, Connection connection) {
@@ -53,6 +54,22 @@ public class CustomerDaoImpl implements CustomerDao {
             throw new RuntimeException(e);
         }
         return customerDto;
+    }
+
+    @Override
+    public boolean updateCustomer(String customerId, CustomerDto customerDto, Connection connection) {
+        try {
+            var preparedStatement = connection.prepareStatement(UPDATE_CUSTOMER);
+            preparedStatement.setString(1, customerDto.getName());
+            preparedStatement.setString(2, customerDto.getAddress());
+            preparedStatement.setDouble(3, customerDto.getSalary());
+
+            preparedStatement.setString(4, customerId);
+            return preparedStatement.executeUpdate() != 0;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
 

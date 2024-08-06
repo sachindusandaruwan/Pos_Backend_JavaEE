@@ -76,4 +76,22 @@ public class CustomerController extends HttpServlet {
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        try(var writer = resp.getWriter()) {
+            var customerId = req.getParameter("id");
+            Jsonb jsonb = JsonbBuilder.create();
+            CustomerDto customerDto= jsonb.fromJson(req.getReader(), CustomerDto.class);
+            if (customerBo.updateCustomer(customerId,customerDto,connection)){
+                writer.write("customer updated successfully");
+            }
+            else {
+                writer.write("customer not updated");
+            }
+
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

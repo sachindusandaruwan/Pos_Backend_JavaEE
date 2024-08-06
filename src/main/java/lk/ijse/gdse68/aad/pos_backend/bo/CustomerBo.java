@@ -8,4 +8,6 @@ public interface CustomerBo {
     String saveCustomer(CustomerDto customerDto, Connection connection);
 
     CustomerDto getCustomer(String customerId, Connection connection);
+
+    boolean updateCustomer(String customerId, CustomerDto customerDto, Connection connection);
 }
