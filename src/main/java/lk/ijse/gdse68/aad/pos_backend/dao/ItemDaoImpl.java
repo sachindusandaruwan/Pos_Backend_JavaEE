@@ -12,6 +12,7 @@ public class ItemDaoImpl implements ItemDao {
 
     public static String SAVE_ITEM="INSERT into item values(?,?,?,?)";
     public static String GET_ITEM_BY_ITEMCODE = "select * from item where item_code=?";
+    public static String UPDATE_ITEM = "UPDATE item SET item_name=?, item_qty=?, unit_price=? WHERE item_code=?";
 
     @Override
     public String saveItem(ItemDto itemDto, Connection connection) {
@@ -55,5 +56,23 @@ public class ItemDaoImpl implements ItemDao {
             throw new RuntimeException(e);
         }
         return itemDto;
+    }
+
+    @Override
+    public boolean updateItem(String itemCode, ItemDto itemDto, Connection connection) {
+//        System.out.println("hii mn walaya");
+        try {
+            var preparedStatement = connection.prepareStatement(UPDATE_ITEM);
+            preparedStatement.setString(1, itemDto.getItemName());
+            preparedStatement.setInt(2, itemDto.getItemQty());
+            preparedStatement.setDouble(3, itemDto.getUnitPrice());
+
+            preparedStatement.setString(4, itemCode);
+//            System.out.println("kkkkkk");
+            return preparedStatement.executeUpdate() != 0;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

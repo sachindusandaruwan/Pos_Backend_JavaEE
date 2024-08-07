@@ -8,4 +8,6 @@ public interface ItemDao {
     String saveItem(ItemDto itemDto, Connection connection);
 
     ItemDto getItem(String itemCode, Connection connection);
+
+    boolean updateItem(String itemCode, ItemDto itemDto, Connection connection);
 }

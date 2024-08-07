@@ -19,4 +19,10 @@ public class ItemBoImpl implements ItemBo {
     public ItemDto getItem(String itemCode, Connection connection) {
         return itemDao.getItem(itemCode,connection);
     }
+
+    @Override
+    public boolean updateItem(String itemCode, ItemDto itemDto, Connection connection) {
+//        System.out.println("mn update eke itemImpl ekta awa");
+        return itemDao.updateItem(itemCode,itemDto,connection);
+    }
 }

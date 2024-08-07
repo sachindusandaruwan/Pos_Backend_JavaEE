@@ -75,8 +75,26 @@ public class ItemController extends HttpServlet {
             var itemCode = req.getParameter("itemCode");
             resp.setContentType("application/json");
             jsonb.toJson(itemBo.getItem(itemCode,connection),writer);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-
+    @Override
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        try(var writer = resp.getWriter()) {
+            var itemCode = req.getParameter("itemCode");
+            System.out.println(itemCode);
+            Jsonb jsonb = JsonbBuilder.create();
+            ItemDto itemDto= jsonb.fromJson(req.getReader(), ItemDto.class);
+//            System.out.println("hu hu");
+            if (itemBo.updateItem(itemCode,itemDto,connection)){
+                System.out.println("Item updated");
+                writer.write("Item updated successfully");
+            }
+            else {
+                writer.write("Item not updated");
+            }
 
         } catch (Exception e) {
             throw new RuntimeException(e);
