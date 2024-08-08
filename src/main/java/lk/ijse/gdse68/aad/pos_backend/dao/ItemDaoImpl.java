@@ -13,6 +13,7 @@ public class ItemDaoImpl implements ItemDao {
     public static String SAVE_ITEM="INSERT into item values(?,?,?,?)";
     public static String GET_ITEM_BY_ITEMCODE = "select * from item where item_code=?";
     public static String UPDATE_ITEM = "UPDATE item SET item_name=?, item_qty=?, unit_price=? WHERE item_code=?";
+    public static String DELETE_ITEM = "DELETE FROM item WHERE item_code=?";
 
     @Override
     public String saveItem(ItemDto itemDto, Connection connection) {
@@ -71,6 +72,17 @@ public class ItemDaoImpl implements ItemDao {
 //            System.out.println("kkkkkk");
             return preparedStatement.executeUpdate() != 0;
 
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public boolean deleteItem(String itemCode, Connection connection) {
+        try {
+            var pst=connection.prepareStatement(DELETE_ITEM);
+            pst.setString(1, itemCode);
+            return pst.executeUpdate() != 0;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

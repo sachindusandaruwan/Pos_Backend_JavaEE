@@ -25,4 +25,9 @@ public class ItemBoImpl implements ItemBo {
 //        System.out.println("mn update eke itemImpl ekta awa");
         return itemDao.updateItem(itemCode,itemDto,connection);
     }
+
+    @Override
+    public boolean deleteItem(String itemCode, Connection connection) {
+        return itemDao.deleteItem(itemCode,connection);
+    }
 }

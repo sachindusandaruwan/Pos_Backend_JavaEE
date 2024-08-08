@@ -11,4 +11,6 @@ public interface ItemBo {
     ItemDto getItem(String itemCode, Connection connection);
 
     boolean updateItem(String itemCode, ItemDto itemDto, Connection connection);
+
+    boolean deleteItem(String itemCode, Connection connection);
 }

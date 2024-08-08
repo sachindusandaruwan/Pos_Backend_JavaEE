@@ -100,4 +100,20 @@ public class ItemController extends HttpServlet {
             throw new RuntimeException(e);
         }
     }
+    @Override
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("doDelete method Invoked");
+        try(var writer = resp.getWriter()) {
+            var itemCode = req.getParameter("itemCode");
+            if (itemBo.deleteItem(itemCode, connection)){
+                resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
+                System.out.println("Item deleted!!!");
+                writer.write("Item deleted successfully");
+            }else {
+                resp.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+                writer.write("Something went wrong");
+            }
+        }
+
+    }
 }
