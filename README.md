@@ -40,7 +40,7 @@ The POS (Point of Sale) System is designed to streamline retail operations by ma
     ```
    **Clone the repository -Frontend**
     ```bash
-   git clone https://github.com/ApsaraWitharana/AAD-Assignment-JavaEE-Pos-Frontend.git
+   git clone https:https://github.com/sachindusandaruwan/POS_Frontend.git
   
     ```
 
