@@ -9,13 +9,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="41ba3d60-feec-48a2-946a-4717250ecc68" name="Changes" comment="item update done">
+    <list default="true" id="41ba3d60-feec-48a2-946a-4717250ecc68" name="Changes" comment="item delete done">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/Filter/CORSFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/Filter/Security.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/bo/BOFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/bo/SuperBO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/controller/OrderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/dao/CrudDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/dao/DAOFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/dao/SqlUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/dao/SuperDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/dao/custom/OrderDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/dao/custom/OrderDetailDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/dao/custom/impl/OrderDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/dao/custom/impl/OrderDetailDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/db/DbConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/dto/OrderDetailDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/dto/OrderDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/entity/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/entity/Item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/entity/OrderDetails.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/dd3676fd-6abb-4d49-80ea-8a6f5e02249a.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/dd3676fd-6abb-4d49-80ea-8a6f5e02249a.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/bo/ItemBo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/bo/ItemBo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/bo/ItemBoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/bo/ItemBoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/bo/CustomerBo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/bo/custom/CustomerBo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/bo/CustomerBoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/bo/custom/impl/CustomerBoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/bo/ItemBo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/bo/custom/ItemBo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/bo/ItemBoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/bo/custom/impl/ItemBoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/controller/CustomerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/controller/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/dao/ItemDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/dao/ItemDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/dao/ItemDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/dao/ItemDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/dao/CustomerDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/dao/custom/CustomerDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/dao/CustomerDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/dao/custom/impl/CustomerDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/dao/ItemDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/dao/custom/ItemDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/dao/ItemDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/dao/custom/impl/ItemDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/dto/ItemDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/gdse68/aad/pos_backend/dto/ItemDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +228,8 @@
       <workItem from="1722921482809" duration="12972000" />
       <workItem from="1722954356996" duration="7662000" />
       <workItem from="1723000387037" duration="1745000" />
-      <workItem from="1723095657920" duration="556000" />
+      <workItem from="1723095657920" duration="34834000" />
+      <workItem from="1723185394558" duration="15913000" />
     </task>
     <task id="LOCAL-00001" summary="version 01">
       <option name="closed" value="true" />
@@ -264,7 +295,15 @@
       <option name="project" value="LOCAL" />
       <updated>1723001707538</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="item delete done">
+      <option name="closed" value="true" />
+      <created>1723096325447</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1723096325447</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -277,6 +316,7 @@
     <MESSAGE value="customer save,get,update and delete done" />
     <MESSAGE value="save item done" />
     <MESSAGE value="item update done" />
-    <option name="LAST_COMMIT_MESSAGE" value="item update done" />
+    <MESSAGE value="item delete done" />
+    <option name="LAST_COMMIT_MESSAGE" value="item delete done" />
   </component>
 </project>

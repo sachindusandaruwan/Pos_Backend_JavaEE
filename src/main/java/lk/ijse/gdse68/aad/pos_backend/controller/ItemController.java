@@ -7,10 +7,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import lk.ijse.gdse68.aad.pos_backend.bo.ItemBo;
-import lk.ijse.gdse68.aad.pos_backend.bo.ItemBoImpl;
+import lk.ijse.gdse68.aad.pos_backend.bo.BOFactory;
+import lk.ijse.gdse68.aad.pos_backend.bo.custom.CustomerBo;
+import lk.ijse.gdse68.aad.pos_backend.bo.custom.ItemBo;
+import lk.ijse.gdse68.aad.pos_backend.bo.custom.impl.ItemBoImpl;
 import lk.ijse.gdse68.aad.pos_backend.dto.CustomerDto;
 import lk.ijse.gdse68.aad.pos_backend.dto.ItemDto;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -18,13 +22,20 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
+
+import static lk.ijse.gdse68.aad.pos_backend.controller.CustomerController.logger;
 
 @WebServlet(urlPatterns = "/item")
 public class ItemController extends HttpServlet {
 
     Connection connection;
+    static Logger logger = LoggerFactory.getLogger(ItemController.class);
+    Jsonb jsonb = JsonbBuilder.create();
 
-    ItemBo itemBo=new ItemBoImpl();
+//    ItemBo itemBo=new ItemBoImpl();
+    ItemBo itemBo=(ItemBo) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ITEM);
+
 
     @Override
     public void init() throws ServletException {
@@ -68,16 +79,49 @@ public class ItemController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("doget method Invoked");
 
-        try(var writer = resp.getWriter()) {
-            Jsonb jsonb = JsonbBuilder.create();
-            var itemCode = req.getParameter("itemCode");
-            resp.setContentType("application/json");
-            jsonb.toJson(itemBo.getItem(itemCode,connection),writer);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        String id = req.getParameter("id");
+        if (id != null && !id.trim().isEmpty()) {
+            try(var writer = resp.getWriter()){
+                Jsonb jsonb = JsonbBuilder.create();
+                var itemCode = req.getParameter("itemCode");
+                resp.setContentType("application/json");
+                var item = itemBo.getItem(itemCode, connection);
+                if (item != null && item.getItemQty() > 1 ){
+                    jsonb.toJson(item, writer);
+                    logger.info("Item retrieved successfully: {}", item);
+                }else {
+                    resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
+                    logger.error("Item not found: id={}", itemCode);
+                    writer.write("Item not found");
+                }
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        } else if(req.getParameter("itemCode") == null) {
+            try(var writer =resp.getWriter()){
+                List<ItemDto> items = itemBo.getAllItems(connection);
+                jsonb.toJson(items, writer);
+                logger.info("All items retrieved successfully");
+            } catch (Exception e) {
+                resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+                logger.error("Failed to retrieve items",e);
+                throw new RuntimeException(e);
+            }
         }
+
+
+
+//        System.out.println("doget method Invoked");
+//
+//        try(var writer = resp.getWriter()) {
+//            Jsonb jsonb = JsonbBuilder.create();
+//            var itemCode = req.getParameter("itemCode");
+//            resp.setContentType("application/json");
+//            jsonb.toJson(itemBo.getItem(itemCode,connection),writer);
+//        } catch (Exception e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
     @Override

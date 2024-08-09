@@ -793,7 +793,7 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
     </schema>
     <schema id="239" parent="1" name="pos_sys">
       <Current>1</Current>
-      <LastIntrospectionLocalTimestamp>2024-08-06.15:05:37</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2024-08-09.13:18:34</LastIntrospectionLocalTimestamp>
       <CollationName>latin1_swedish_ci</CollationName>
     </schema>
     <schema id="240" parent="1" name="se10">
@@ -828,62 +828,142 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Engine>InnoDB</Engine>
       <CollationName>latin1_swedish_ci</CollationName>
     </table>
-    <column id="250" parent="248" name="id">
+    <table id="250" parent="239" name="order_detail">
+      <Engine>InnoDB</Engine>
+      <CollationName>latin1_swedish_ci</CollationName>
+    </table>
+    <table id="251" parent="239" name="orders">
+      <Engine>InnoDB</Engine>
+      <CollationName>latin1_swedish_ci</CollationName>
+    </table>
+    <column id="252" parent="248" name="id">
       <DasType>varchar(5)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="251" parent="248" name="name">
+    <column id="253" parent="248" name="name">
       <DasType>varchar(30)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="252" parent="248" name="address">
+    <column id="254" parent="248" name="address">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="253" parent="248" name="salary">
+    <column id="255" parent="248" name="salary">
       <DasType>double|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <index id="254" parent="248" name="PRIMARY">
+    <index id="256" parent="248" name="PRIMARY">
       <ColNames>id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="255" parent="248" name="PRIMARY">
+    <key id="257" parent="248" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="256" parent="249" name="item_code">
+    <column id="258" parent="249" name="item_code">
       <DasType>varchar(10)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="257" parent="249" name="item_name">
+    <column id="259" parent="249" name="item_name">
       <DasType>varchar(30)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="258" parent="249" name="item_qty">
+    <column id="260" parent="249" name="item_qty">
       <DasType>int(10)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="259" parent="249" name="unit_price">
+    <column id="261" parent="249" name="unit_price">
       <DasType>double|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <index id="260" parent="249" name="PRIMARY">
+    <index id="262" parent="249" name="PRIMARY">
       <ColNames>item_code</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="261" parent="249" name="PRIMARY">
+    <key id="263" parent="249" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <column id="264" parent="250" name="orderId">
+      <DasType>varchar(5)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="265" parent="250" name="item_code">
+      <DasType>varchar(10)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="266" parent="250" name="unit_price">
+      <DasType>double|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="267" parent="250" name="qty">
+      <DasType>int(5)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>4</Position>
+    </column>
+    <foreign-key id="268" parent="250" name="order_detail_ibfk_2">
+      <ColNames>orderId</ColNames>
+      <RefColNames>orderId</RefColNames>
+      <RefTableName>orders</RefTableName>
+    </foreign-key>
+    <foreign-key id="269" parent="250" name="order_detail_ibfk_1">
+      <ColNames>item_code</ColNames>
+      <RefColNames>item_code</RefColNames>
+      <RefTableName>item</RefTableName>
+    </foreign-key>
+    <index id="270" parent="250" name="orderId">
+      <ColNames>orderId</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="271" parent="250" name="item_code">
+      <ColNames>item_code</ColNames>
+      <Type>btree</Type>
+    </index>
+    <column id="272" parent="251" name="orderId">
+      <DasType>varchar(5)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="273" parent="251" name="id">
+      <DasType>varchar(5)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="274" parent="251" name="total">
+      <DasType>double|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <foreign-key id="275" parent="251" name="id">
+      <ColNames>id</ColNames>
+      <RefColNames>id</RefColNames>
+      <RefTableName>customer</RefTableName>
+    </foreign-key>
+    <index id="276" parent="251" name="PRIMARY">
+      <ColNames>orderId</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <index id="277" parent="251" name="id">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="278" parent="251" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
